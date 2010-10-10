@@ -39,9 +39,6 @@ class Referral(object):
     #: The original, full referrer string
     referrer     = None
 
-    # future:
-    # is_bot
-    
     def __init__(self, referrer):
         '''
         ctor

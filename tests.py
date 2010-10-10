@@ -3,7 +3,7 @@ import unittest
 from refsrc import Referral
 
 class TestReferral(unittest.TestCase):
-    def test_main(self):
+    def test_searchengines(self):
         testdata = [
             {'referrer' : 'http://www.google.com/search?num=30&hl=en&newwindow=1&biw=1136&bih=822&q=linux+boot+options&aq=6&aqi=g10&aql=&oq=linux+boo&gs_rfai=',
              'searchengine' : 'google',
