@@ -10,7 +10,7 @@ __all__ = [
     ]
 
 import re
-import urllib
+from urllib import unquote_plus
 
 #: search engine recognition regexes.  (name, regex)
 SE_REGEXES = [
@@ -63,8 +63,8 @@ def _referral(referrer):
             params.update({
                     'is_search' : True,
                     'searchengine' : name,
-                    'searchphrase' : urllib.unquote_plus(match.group('searchphrase')).strip(),
+                    'searchphrase' : unquote_plus(match.group('searchphrase')).strip(),
                     })
             break
     return params
-    
+
