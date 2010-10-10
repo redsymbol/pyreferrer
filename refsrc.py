@@ -16,6 +16,7 @@ from urllib import unquote_plus
 SE_REGEXES = [
     ('google',    re.compile(r'^http://[a-zA-Z.]*google\.\w+(\.\w+)?/.*\bq=(?P<searchphrase>[^&]*)')),
     ('bing',      re.compile(r'^http://[a-zA-Z.]*bing.com/.*\bq=(?P<searchphrase>[^&]*)')),
+    ('yahoo',     re.compile(r'^http://[a-zA-Z0-9.]*yahoo\.\w+(\.\w+)?/.*\bp=(?P<searchphrase>[^&]*)')),
     ]
 
 class Referral(object):

@@ -25,6 +25,21 @@ class TestReferral(unittest.TestCase):
              'searchphrase' : 'automated quality assurance',
              'is_search' : True,
              },
+            {'referrer' : 'http://search.yahoo.co.jp/search?p=kernel+boot+parameter+linux&search.x=1&fr=top_ga1_sa&tid=top_ga1_sa&ei=UTF-8&aq=&oq=',
+             'searchengine' : 'yahoo',
+             'searchphrase' : 'kernel boot parameter linux',
+             'is_search' : True,
+             },
+            {'referrer' : 'http://us.m2.yahoo.com/w/ygo-onesearch%3B_ylt=A0WTc0Lmt1ZMnx4ACwLwOS4J?p=aaron+maxwell&submit=oneSearch&.tsrc=attosus&bzc=19454&.intl=us&.lang=en&lat=40.241337&lon=-74.83738&city=Yardley&street=&state=PA&country=US',
+             'searchengine' : 'yahoo',
+             'searchphrase' : 'aaron maxwell',
+             'is_search' : True,
+             },
+            {'referrer' : 'http://uk.search.yahoo.com/search?p=latex+.png&ei=utf-8&fr=iobit-trans',
+             'searchengine' : 'yahoo',
+             'searchphrase' : 'latex .png',
+             'is_search' : True,
+             },
             ]
         for ii, td in enumerate(testdata):
             ref = Referral(td['referrer'])
