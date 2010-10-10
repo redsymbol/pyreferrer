@@ -5,6 +5,18 @@ Referrer source utilities
 
 '''
 
+__all__ = [
+    'Referral',
+    ]
+
+import re
+import urllib
+
+#: search engine recognition regexes.  (name, regex)
+SE_REGEXES = [
+    ('google',    re.compile(r'^http://[a-zA-Z.]+google\.\w+/.*\bq=(?P<searchphrase>[^&]*)')),
+    ]
+
 class Referral(object):
     '''
     Represents a request's referrer source, and information extracted from it
@@ -37,4 +49,21 @@ class Referral(object):
         
         '''
         self.referrer = referrer
+        for k, v in _referral(referrer).iteritems():
+            setattr(self, k, v)
+
+def _referral(referrer):
+    params = {
+        'is_search' : False,
+        }
+    for name, regex in SE_REGEXES:
+        match = regex.search(referrer)
+        if match:
+            params.update({
+                    'is_search' : True,
+                    'searchengine' : name,
+                    'searchphrase' : urllib.unquote_plus(match.group('searchphrase')),
+                    })
+            break
+    return params
     
