@@ -9,7 +9,18 @@ class TestReferral(unittest.TestCase):
              'searchengine' : 'google',
              'searchphrase' : 'linux boot options',
              'is_search' : True,
-             }
+             },
+            {'referrer' : 'http://www.google.de/search?q=tex+math+to+image&ie=utf-8&oe=utf-8&aq=t&rls=org.mozilla:de:official&client=firefox-a',
+             'searchengine' : 'google',
+             'searchphrase' : 'tex math to image',
+             'is_search' : True,
+             },
+            {'referrer' : 'http://www.google.co.in/search?q=+++++++Language+Outside+Chomsky+Hierarchy',
+             'searchengine' : 'google',
+             'searchphrase' : 'Language Outside Chomsky Hierarchy',
+             'is_search' : True,
+             },
+
             ]
         for ii, td in enumerate(testdata):
             ref = Referral(td['referrer'])

@@ -14,7 +14,7 @@ import urllib
 
 #: search engine recognition regexes.  (name, regex)
 SE_REGEXES = [
-    ('google',    re.compile(r'^http://[a-zA-Z.]+google\.\w+/.*\bq=(?P<searchphrase>[^&]*)')),
+    ('google',    re.compile(r'^http://[a-zA-Z.]+google\.\w+(\.\w+)?/.*\bq=(?P<searchphrase>[^&]*)')),
     ]
 
 class Referral(object):
@@ -62,7 +62,7 @@ def _referral(referrer):
             params.update({
                     'is_search' : True,
                     'searchengine' : name,
-                    'searchphrase' : urllib.unquote_plus(match.group('searchphrase')),
+                    'searchphrase' : urllib.unquote_plus(match.group('searchphrase')).strip(),
                     })
             break
     return params
