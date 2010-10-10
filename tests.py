@@ -20,7 +20,11 @@ class TestReferral(unittest.TestCase):
              'searchphrase' : 'Language Outside Chomsky Hierarchy',
              'is_search' : True,
              },
-
+            {'referrer' : 'http://www.bing.com/search?q=automated+quality+assurance&qs=n&sk=&adlt=strict&first=31&FORM=PERE2',
+             'searchengine' : 'bing',
+             'searchphrase' : 'automated quality assurance',
+             'is_search' : True,
+             },
             ]
         for ii, td in enumerate(testdata):
             ref = Referral(td['referrer'])
