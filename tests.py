@@ -46,6 +46,11 @@ class TestReferral(unittest.TestCase):
              'searchphrase' : 'don´t try to mount drive during boot linux kernel parameter',
              'is_search' : True,
              },
+            {'referrer' : 'http://duckduckgo.com/?q=kernel+boot+arguments+ip%3D&v=',
+             'searchengine' : 'duckduckgo',
+             'searchphrase' : 'kernel boot arguments ip=',
+             'is_search' : True,
+             },
             ]
         for ii, td in enumerate(testdata):
             ref = Referral(td['referrer'])
