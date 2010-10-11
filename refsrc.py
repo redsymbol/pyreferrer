@@ -18,6 +18,7 @@ SE_REGEXES = [
     ('bing',      re.compile(r'^http://[a-zA-Z.]*bing.com/.*\bq=(?P<searchphrase>[^&]*)')),
     ('yahoo',     re.compile(r'^http://[a-zA-Z0-9.]*yahoo\.\w+(\.\w+)?/.*\bp=(?P<searchphrase>[^&]*)')),
     ('duckduckgo', re.compile(r'^http://duckduckgo.com/.*\bq=(?P<searchphrase>[^&]*)')),
+    ('ask',       re.compile(r'^http://[a-zA-Z.]*ask.com/.*\bq=(?P<searchphrase>[^&]*)')),
     ]
 
 class Referral(object):

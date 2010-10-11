@@ -51,6 +51,16 @@ class TestReferral(unittest.TestCase):
              'searchphrase' : 'kernel boot arguments ip=',
              'is_search' : True,
              },
+            {'referrer' : 'http://uk.ask.com/web?q=linux%20kernel%20parameters&o=15527&l=dis&prt=360&chn=retail&geo=GB&ver=4',
+             'searchengine' : 'ask',
+             'searchphrase' : 'linux kernel parameters',
+             'is_search' : True,
+             },
+            {'referrer' : 'http://www.ask.com/web?qsrc=2990&o=0&l=dir&q=linux+kernel+parameter+to+turn+off+smp',
+             'searchengine' : 'ask',
+             'searchphrase' : 'linux kernel parameter to turn off smp',
+             'is_search' : True,
+             },
             ]
         for ii, td in enumerate(testdata):
             ref = Referral(td['referrer'])
