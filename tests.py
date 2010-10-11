@@ -61,6 +61,17 @@ class TestReferral(unittest.TestCase):
              'searchphrase' : 'linux kernel parameter to turn off smp',
              'is_search' : True,
              },
+            # It seems that this is not UTF-8 encoded?
+            # {'referrer' : 'http://yandex.ru/yandsearch?text=%e3%e0%e7%ee%e0%ed%e0%eb%e8%e7%e0%f2%ee%f0',
+            #  'searchengine' : 'yandex',
+            #  'searchphrase' : 'газоанализатор',
+            #  'is_search' : True,
+            #  },
+            {'referrer' : 'http://yandex.ru/yandsearch?clid=9582&text=RedSymbol&lr=213',
+             'searchengine' : 'yandex',
+             'searchphrase' : 'RedSymbol',
+             'is_search' : True,
+             },
             ]
         for ii, td in enumerate(testdata):
             ref = Referral(td['referrer'])
