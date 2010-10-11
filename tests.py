@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import unittest
 
 from refsrc import Referral
@@ -38,6 +39,11 @@ class TestReferral(unittest.TestCase):
             {'referrer' : 'http://uk.search.yahoo.com/search?p=latex+.png&ei=utf-8&fr=iobit-trans',
              'searchengine' : 'yahoo',
              'searchphrase' : 'latex .png',
+             'is_search' : True,
+             },
+            {'referrer' : 'http://search.yahoo.com/search;_ylt=A0geu1.LIytMR1sBTgdXNyoA?p=don%C2%B4t+try+to+mount+drive+during+boot+linux+kernel+parameter&fr2=sb-top&fr=yfp-t-701&sao=1',
+             'searchengine' : 'yahoo',
+             'searchphrase' : 'don´t try to mount drive during boot linux kernel parameter',
              'is_search' : True,
              },
             ]
