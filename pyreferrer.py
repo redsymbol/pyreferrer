@@ -1,5 +1,5 @@
 '''
-Referrer source utilities
+pyreferrer - Python toolset for web server referrer/origin analysis
 
 (Flames about "referer" vs. "referrer" will be sent to /dev/null.)
 

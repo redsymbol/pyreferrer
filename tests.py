@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 
-from refsrc import Referrer
+from pyreferrer import Referrer
 
 class TestReferrer(unittest.TestCase):
     def test_searchengines(self):
