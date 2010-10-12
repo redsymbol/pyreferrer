@@ -27,5 +27,6 @@ def referrer(logline):
 if '__main__' == __name__:
     import sys
     for line in sys.stdin:
-        if '-' != line:
-            print referrer(line)
+        ref = referrer(line)
+        if '-' != ref:
+            print ref
