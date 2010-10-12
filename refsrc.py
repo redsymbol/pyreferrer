@@ -7,6 +7,7 @@ Referrer source utilities
 
 __all__ = [
     'Referrer',
+    'referral_info',
     ]
 
 import re
