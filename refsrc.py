@@ -6,7 +6,7 @@ Referrer source utilities
 '''
 
 __all__ = [
-    'Referral',
+    'Referrer',
     ]
 
 import re
@@ -22,7 +22,7 @@ SE_REGEXES = [
     ('yandex',    re.compile(r'^http://yandex.ru/.*\btext=(?P<searchphrase>[^&]*)')),
     ]
 
-class Referral(object):
+class Referrer(object):
     '''
     Represents a request's referrer source, and information extracted from it
 
@@ -56,14 +56,14 @@ class Referral(object):
 
 def referrer_info(referrer):
     '''
-    Referral information dictionary
+    Referrer information dictionary
 
     This is essentially an alternative interface to getting the
-    information from the Referral class.  In most Python
+    information from the Referrer class.  In most Python
     implementations, such as CPython, object creation is slow compared
     to dictionary creation by a factor of 3 or so.  In performance
     sensitive applications, you can use this instead of creating the
-    Referral class.
+    Referrer class.
 
     The returned dictionary will at least contain an is_search key,
     valued True or False.  If True, the dict will also contain the
@@ -72,7 +72,7 @@ def referrer_info(referrer):
       searchengine
       searchphrase
 
-    See the documentation of the Referral class for their meaning.
+    See the documentation of the Referrer class for their meaning.
 
     @param referrer : Referrer ("referer") string
     @type  referrer : str

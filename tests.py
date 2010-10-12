@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import unittest
 
-from refsrc import Referral
+from refsrc import Referrer
 
-class TestReferral(unittest.TestCase):
+class TestReferrer(unittest.TestCase):
     def test_searchengines(self):
         testdata = [
             {'referrer' : 'http://www.google.com/search?num=30&hl=en&newwindow=1&biw=1136&bih=822&q=linux+boot+options&aq=6&aqi=g10&aql=&oq=linux+boo&gs_rfai=',
@@ -74,7 +74,7 @@ class TestReferral(unittest.TestCase):
              },
             ]
         for ii, td in enumerate(testdata):
-            ref = Referral(td['referrer'])
+            ref = Referrer(td['referrer'])
             self.assertEqual(td['referrer'], ref.referrer)
             self.assertEqual(td['is_search'], ref.is_search)
             self.assertEqual(td['searchphrase'], ref.searchphrase)
