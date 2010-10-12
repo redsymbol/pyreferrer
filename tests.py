@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import unittest
+import os
 
 from pyreferrer import Referrer
 
@@ -78,3 +79,12 @@ class TestReferrer(unittest.TestCase):
             self.assertEqual(td['referrer'], ref.referrer)
             self.assertEqual(td['is_search'], ref.is_search)
             self.assertEqual(td['searchphrase'], ref.searchphrase)
+
+    def test_nonsearch(self):
+        # Path to a giant corpus of referrer strings, one per line
+        listing = os.environ['PYREFERRER_NONSEARCH']
+        with open(listing) as referrers:
+            for referrer in referrers:
+                referrer = referrer.strip()
+                ref = Referrer(referrer)
+                self.assertFalse(ref.is_search, referrer)
