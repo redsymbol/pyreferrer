@@ -51,10 +51,36 @@ class Referral(object):
         
         '''
         self.referrer = referrer
-        for k, v in _referral(referrer).iteritems():
+        for k, v in referrer_info(referrer).iteritems():
             setattr(self, k, v)
 
-def _referral(referrer):
+def referrer_info(referrer):
+    '''
+    Referral information dictionary
+
+    This is essentially an alternative interface to getting the
+    information from the Referral class.  In most Python
+    implementations, such as CPython, object creation is slow compared
+    to dictionary creation by a factor of 3 or so.  In performance
+    sensitive applications, you can use this instead of creating the
+    Referral class.
+
+    The returned dictionary will at least contain an is_search key,
+    valued True or False.  If True, the dict will also contain the
+    following other keys:
+
+      searchengine
+      searchphrase
+
+    See the documentation of the Referral class for their meaning.
+
+    @param referrer : Referrer ("referer") string
+    @type  referrer : str
+        
+    @return : referrer information
+    @rtype  : dict
+    
+    '''
     params = {
         'is_search' : False,
         }
