@@ -15,12 +15,12 @@ from urllib import unquote_plus
 
 #: search engine recognition regexes.  (name, regex)
 SE_REGEXES = [
-    ('google',    re.compile(r'^http://[a-zA-Z.]*google\.\w+(\.\w+)?/.*\bq=(?P<searchphrase>[^&]*)')),
-    ('bing',      re.compile(r'^http://[a-zA-Z.]*bing.com/.*\bq=(?P<searchphrase>[^&]*)')),
-    ('yahoo',     re.compile(r'^http://[a-zA-Z0-9.]*yahoo\.\w+(\.\w+)?/.*\bp=(?P<searchphrase>[^&]*)')),
-    ('duckduckgo', re.compile(r'^http://duckduckgo.com/.*\bq=(?P<searchphrase>[^&]*)')),
-    ('ask',       re.compile(r'^http://[a-zA-Z.]*ask.com/.*\bq=(?P<searchphrase>[^&]*)')),
-    ('yandex',    re.compile(r'^http://yandex.ru/.*\btext=(?P<searchphrase>[^&]*)')),
+    ('google',      re.compile(r'^http://[a-zA-Z.]*google\.\w+(\.\w+)?/.*\bq=(?P<searchphrase>[^&]*)')),
+    ('bing',        re.compile(r'^http://[a-zA-Z.]*bing.com/.*\bq=(?P<searchphrase>[^&]*)')),
+    ('yahoo',       re.compile(r'^http://[a-zA-Z0-9.]*yahoo\.\w+(\.\w+)?/.*\bp=(?P<searchphrase>[^&]*)')),
+    ('duckduckgo',  re.compile(r'^http://duckduckgo.com/.*\bq=(?P<searchphrase>[^&]*)')),
+    ('ask',         re.compile(r'^http://[a-zA-Z.]*ask.com/.*\bq=(?P<searchphrase>[^&]*)')),
+    ('yandex',      re.compile(r'^http://yandex.ru/.*\btext=(?P<searchphrase>[^&]*)')),
     ]
 
 class Referrer(object):
