@@ -131,11 +131,9 @@ def referrer_info(referrer):
     for name, regex in SE_REGEXES:
         match = regex.search(referrer)
         if match:
-            params.update({
-                    'is_search' : True,
-                    'searchengine' : name,
-                    'searchphrase' : unquote_plus(match.group('searchphrase')).strip(),
-                    })
+            params['is_search'] = True
+            params['searchengine'] = name
+            params['searchphrase'] = unquote_plus(match.group('searchphrase')).strip()
             break
     return params
 
