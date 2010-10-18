@@ -88,3 +88,6 @@ class TestReferrer(unittest.TestCase):
                 referrer = referrer.strip()
                 ref = Referrer(referrer)
                 self.assertFalse(ref.is_search, referrer)
+
+if '__main__' == __name__:
+    unittest.main()
