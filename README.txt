@@ -1,1 +1,67 @@
-pyreferrer - Python toolset for web server referrer/origin analysis
+pyreferrer - Python library for web server referrer info
+
+Pyreferrer is a library to help gleen useful information from web
+server referrer ("referer") strings.  It is small, providing one class
+and one function.
+
+In this current version (1.0) the primary benefit is to tell you
+whether the web hit was forwarded from a search engine; and if so,
+which engine, and with what search terms.  It knows about the major
+search engines used by North Americans, and the plan is to add more
+over time.
+
+INSTALL
+
+Copy pyreferrer.py into your python path.
+
+USAGE
+
+Like so:
+
+import pyreferrer
+
+# Use the Referrer class, unless performance matters for your
+# application.  In that case use the referral_info function.
+
+referrer_string = 'http://www.google.com/search?q=linux+boot+options'
+
+ref = pyreferrer.Referrer(referrer_string)
+ref.is_search # True
+ref.searchengine # 'google'
+ref.searchphrase # 'linux boot options'
+
+ref2 = pyreferrer.Referrer('http://cnn.com')
+ref2.is_search # False
+
+# Alternatively, use the referrer_info function if performance is a
+# concern.  This returns a dict instead of instantiating an object.
+
+info = pyreferrer.referrer_info(referrer_string)
+info['is_search'] # True
+info['searchengine'] # 'google'
+info['searchphrase'] # 'linux boot options'
+
+info2 = pyreferrer.referrer_info('http://cnn.com')
+info2['is_search'] # False
+
+# end.
+
+DOCUMENTATION
+
+The best documentation is the inline code documentation in the source,
+pyreferrer.py . See the docs for the Referrer class and the
+referrer_info function.
+
+You can generate nice HTML API docs with epydocs, using the "make
+api-doc" command.
+
+SEARCH ENGINES
+
+Known search engines are listed in SE_REGEXES in pyreferrer.py.  If
+you get a referrer string in your logs that isn't matched, please let
+me know.  I'll need the full text of the referrer.
+
+AUTHOR & LICENSE
+
+Made by Aaron Maxwell (amax-at-redsymbol.net).  This software is in
+the public domain.

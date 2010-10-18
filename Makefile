@@ -1,4 +1,4 @@
-TWO2THREE=2to3-2.6
+API_DOC_DIR=doc-api
 test:
 	PATH=$$HOME/bin/env_python2.6:$$PATH nosetests
 	PATH=$$HOME/bin/env_python2.7:$$PATH nosetests
@@ -11,3 +11,8 @@ test3k:
 
 clean:
 	rm -f $$(find . -name '*.pyc' -o -name '*~')
+
+doc-api: pyreferrer.py
+	rm -rf $(API_DOC_DIR)
+	mkdir -p $(API_DOC_DIR)
+	epydoc -v --output $(API_DOC_DIR) pyreferrer.py

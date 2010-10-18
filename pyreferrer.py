@@ -1,9 +1,45 @@
 '''
 pyreferrer - Python toolset for web server referrer/origin analysis
 
-(Flames about "referer" vs. "referrer" will be sent to /dev/null.)
+USAGE
+
+Like so::
+
+  import pyreferrer
+  
+  # Use the Referrer class, unless performance matters for your
+  # application.  In that case use the referral_info function.
+
+  referrer_string = 'http://www.google.com/search?q=linux+boot+options'
+  
+  ref = pyreferrer.Referrer(referrer_string)
+  ref.is_search # True
+  ref.searchengine # 'google'
+  ref.searchphrase # 'linux boot options'
+  
+  ref2 = pyreferrer.Referrer('http://cnn.com')
+  ref2.is_search # False
+  
+  # Alternatively, use the referrer_info function if performance is a
+  # concern.  This returns a dict instead of instantiating an object.
+  
+  info = pyreferrer.referrer_info(referrer_string)
+  info['is_search'] # True
+  info['searchengine'] # 'google'
+  info['searchphrase'] # 'linux boot options'
+  
+  info2 = pyreferrer.referrer_info('http://cnn.com')
+  info2['is_search'] # False
+  
+  # end.
+
+Made for your enjoyment by Aaron Maxwell (amax-at-redsymbol.net).
+This code is in the public domain.  (Flames about "referer"
+vs. "referrer" will be sent to /dev/null.)
 
 '''
+
+_VERSION = (1, 0, 0)
 
 __all__ = [
     'Referrer',
@@ -27,11 +63,18 @@ class Referrer(object):
     '''
     Represents a request's referrer source, and information extracted from it
 
-    You'll be interested in the following properties:
+    You'll be interested in the following instance attributes:
       is_search
       searchengine
       searchphrase
       referrer
+
+    is_search will be True iff the referrer string matches a known
+    search engine.  If that is the case, searchengine is a string
+    (like "google" or "bing") indicating which search engine; search
+    phrase is what the search phrase the visitor typed.
+    
+    If is_search is False, searchengine and searchphrase are undefined.
 
     '''
     #: True or False depending on whether the referrer is a known search engine.
@@ -63,8 +106,8 @@ def referrer_info(referrer):
     information from the Referrer class.  In most Python
     implementations, such as CPython, object creation is slow compared
     to dictionary creation by a factor of 3 or so.  In performance
-    sensitive applications, you can use this instead of creating the
-    Referrer class.
+    sensitive applications, you can use this instead of instantiating
+    a Referrer object.
 
     The returned dictionary will at least contain an is_search key,
     valued True or False.  If True, the dict will also contain the
