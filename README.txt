@@ -10,6 +10,9 @@ which engine, and with what search terms.  It knows about the major
 search engines used by North Americans, and the plan is to add more
 over time.
 
+Pyreferrer works with Python 2.6 and 2.7.  With a quick and easy patch
+from 2to3, it also works great with Python 3.
+
 INSTALL
 
 Copy pyreferrer.py into your python path.
