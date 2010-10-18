@@ -7,7 +7,7 @@ Like so::
 
   import pyreferrer
   
-  # Use the Referrer class, unless performance matters for your
+  # Use the Referrer class, unless performance really matters for your
   # application.  In that case use the referral_info function.
 
   referrer_string = 'http://www.google.com/search?q=linux+boot+options'
@@ -20,8 +20,9 @@ Like so::
   ref2 = pyreferrer.Referrer('http://cnn.com')
   ref2.is_search # False
   
-  # Alternatively, use the referrer_info function if performance is a
-  # concern.  This returns a dict instead of instantiating an object.
+  # Alternatively, use the referrer_info function, which returns a
+  # dict instead of instantiating an object.  It's a bit faster
+  # (by 20-40%).
   
   info = pyreferrer.referrer_info(referrer_string)
   info['is_search'] # True
@@ -102,12 +103,10 @@ def referrer_info(referrer):
     '''
     Referrer information dictionary
 
-    This is essentially an alternative interface to getting the
-    information from the Referrer class.  In most Python
-    implementations, such as CPython, object creation is slow compared
-    to dictionary creation by a factor of 3 or so.  In performance
-    sensitive applications, you can use this instead of instantiating
-    a Referrer object.
+    This is essentially an alternative way to get the information from
+    the Referrer class.  In performance sensitive applications, you
+    can use this instead of instantiating a Referrer object to get a
+    speed boost (up to 40%).
 
     The returned dictionary will at least contain an is_search key,
     valued True or False.  If True, the dict will also contain the

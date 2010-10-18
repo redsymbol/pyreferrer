@@ -23,7 +23,7 @@ Like so:
 
 import pyreferrer
 
-# Use the Referrer class, unless performance matters for your
+# Use the Referrer class, unless performance really matters for your
 # application.  In that case use the referral_info function.
 
 referrer_string = 'http://www.google.com/search?q=linux+boot+options'
@@ -36,9 +36,10 @@ ref.searchphrase # 'linux boot options'
 ref2 = pyreferrer.Referrer('http://cnn.com')
 ref2.is_search # False
 
-# Alternatively, use the referrer_info function if performance is a
-# concern.  This returns a dict instead of instantiating an object.
-
+# Alternatively, use the referrer_info function, which returns a
+# dict instead of instantiating an object.  It's a bit faster
+# (by 20-40%).
+  
 info = pyreferrer.referrer_info(referrer_string)
 info['is_search'] # True
 info['searchengine'] # 'google'
