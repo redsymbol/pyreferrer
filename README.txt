@@ -1,4 +1,4 @@
-pyreferrer - Python library for web server referrer info and algorithmic SEO
+pyreferrer - Python library for web server referrer/origin analysis
 
 Pyreferrer is a library to help gleen useful information from web
 server referrer ("referer") strings.  It is small, providing one class

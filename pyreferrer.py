@@ -1,5 +1,5 @@
 '''
-pyreferrer - Python toolset for web server referrer/origin analysis
+pyreferrer - Python library for web server referrer/origin analysis
 
 USAGE
 
