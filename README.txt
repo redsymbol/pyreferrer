@@ -1,4 +1,4 @@
-pyreferrer - Python library for web server referrer info
+pyreferrer - Python library for web server referrer info and algorithmic SEO
 
 Pyreferrer is a library to help gleen useful information from web
 server referrer ("referer") strings.  It is small, providing one class
@@ -9,6 +9,14 @@ whether the web hit was forwarded from a search engine; and if so,
 which engine, and with what search terms.  It knows about the major
 search engines used by North Americans, and the plan is to add more
 over time.
+
+Some ways this can be useful:
+
+ - Automatic analysis of visitor behavior for your Python-based
+   website
+ - Report search-engine origin info of visitors who take certain
+   actions, such as filling out a request-for-quote form
+ - Algorithmic SEO
 
 Pyreferrer works with Python 2.6 and 2.7.  With a quick and easy patch
 from 2to3, it also works great with Python 3.
