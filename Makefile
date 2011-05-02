@@ -10,7 +10,7 @@ test3k:
 	PATH=$$HOME/bin/env_python3.2:$$PATH nosetests
 
 clean:
-	rm -f $$(find . -name '*.pyc' -o -name '*~')
+	rm -rf $$(find . -name '*.pyc' -o -name '*~' -o -name __pycache__)
 
 doc-api: pyreferrer.py
 	rm -rf $(API_DOC_DIR)
